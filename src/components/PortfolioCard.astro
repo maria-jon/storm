@@ -1,19 +1,36 @@
 ---
 import { Image } from "astro:assets";
 
-const { post } = Astro.props;
+const { cover, coverAlt, url, title } = Astro.props;
 
 const titleId = (title: string) => {
   const removeSpaces = title.replace(/\s+/g, '-').toLowerCase(); 
   return removeSpaces;
 };
 ---
+<style>
+    .portfolio-card {
+        position: relative;
+        border-radius: var(--border-radius);
+	    border: 0.5em solid var(--wine-red);
+        overflow: hidden;
+    }
+    .portfolio-link::after {
+        content: '';
+		position: absolute;
+		inset: 0;
+    }
+</style>
 
-<li>
-    <a href={`/portfolio/${post.id}/`}>
-        {post.data.cover && (
-            <Image width={720} height={360} src={post.data.cover} alt={post.data.coverAlt} />
+<li class="portfolio-card">
+    <div>
+        {cover && (
+            <Image width={720} height={360} src={cover} alt={coverAlt} />
         )}
-        <h4 class="title">{post.data.title}</h4>
-    </a>
+    </div>
+    <h4>
+        <a href={url} class="portfolio-link">
+            {title}
+        </a>
+    </h4>
 </li>

@@ -97,10 +97,10 @@ b {
 	font-weight: 700;
 }
 a {
-	color: var(--accent);
+	color: var(--dark-blue);
 }
 a:hover {
-	color: var(--accent);
+	color: var(--dark-green);
 }
 p {
 	margin-bottom: 1em;
@@ -118,11 +118,9 @@ main {
 	margin-block-start: 0;
 	margin-block-end: 0;
 	padding-inline-start: 0;
-}
-
-.portfolio-list li {
-	border-radius: var(--border-radius);
-	border: 0.5em solid var(--wine-red)
+	display: flex;
+	flex-direction: column;
+	gap: var(--margin-md)
 }
 
 
@@ -139,7 +137,6 @@ table {
 img {
 	max-width: 100%;
 	height: auto;
-	border-radius: 8px;
 }
 code {
 	padding: 2px 5px;

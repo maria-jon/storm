@@ -30,7 +30,7 @@ const portfolio = defineCollection({
 			cover: image(),
 			coverAlt: z.string(),
 			additionalImg: image().optional(),
-			link: z.string(),
+			link: z.string().optional(),
 		}),
 });
 
