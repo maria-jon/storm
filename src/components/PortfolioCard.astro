@@ -1,0 +1,19 @@
+---
+import { Image } from "astro:assets";
+
+const { post } = Astro.props;
+
+const titleId = (title: string) => {
+  const removeSpaces = title.replace(/\s+/g, '-').toLowerCase(); 
+  return removeSpaces;
+};
+---
+
+<li>
+    <a href={`/portfolio/${post.id}/`}>
+        {post.data.cover && (
+            <Image width={720} height={360} src={post.data.cover} alt={post.data.coverAlt} />
+        )}
+        <h4 class="title">{post.data.title}</h4>
+    </a>
+</li>
