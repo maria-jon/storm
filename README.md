@@ -59,4 +59,6 @@ Check out [our documentation](https://docs.astro.build) or jump into our [Discor
 
 ## Credit
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+- [Facebook icon](https://icons8.com/icon/118490/facebook) by [Icons8](https://icons8.com)
+- [Instagram icon](https://icons8.com/icon/84884/instagram) by [Icons8](https://icons8.com)
+- [Mail icon](https://icons8.com/icon/YRRhCXfA0Vd0/mail) by [Icons8](https://icons8.com)
