@@ -1,12 +1,49 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
----
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from "astro:content";
+import PortfolioCard from '../../components/PortfolioCard.astro';
 
+const posts = (await getCollection('portfolio'))
+
+const sortPosts = (
+  a: CollectionEntry<'portfolio'>,
+  b: CollectionEntry<'portfolio'>
+) => a.data.title.localeCompare(b.data.title);
+
+---
+<style>
+    h1 {
+		color: var(--peachy-pink);
+	}
+
+    .portfolio-section {
+       background-color: var(--peachy-pink);
+       border-radius: var(--border-radius); 
+       padding: var(--margin-md);
+    }
+</style>
 <BaseLayout
     title="Portfolio"
     description="Lorem ipsum dolor sit amet"
     background="wine-red"
 >
-    <p>Something here</p>
+    <h1>Portfolio</h1>
+    <div class="portfolio-section">
+        <ul class="portfolio-list">
+			{
+				posts
+					.sort(sortPosts)
+					.map((post) => (
+						<PortfolioCard 
+							cover={post.data.cover}
+							coverAlt={post.data.coverAlt}
+							url={`/portfolio/${post.id}/`}
+							title={post.data.title}
+						/>
+					))
+			}
+		</ul>
+    </div>
 
 </BaseLayout>
