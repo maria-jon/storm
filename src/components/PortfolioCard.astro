@@ -11,26 +11,65 @@ const titleId = (title: string) => {
 <style>
     .portfolio-card {
         position: relative;
+        max-width: 100%;
         border-radius: var(--border-radius);
 	    border: 0.5em solid var(--wine-red);
         overflow: hidden;
     }
-    .portfolio-link::after {
-        content: '';
-		position: absolute;
-		inset: 0;
+
+    .portfolio-img {
+        display: block;
+        max-width: 100%;
+	    height: auto;
     }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        transition: .5s ease;
+        background-color: var(--black);
+    }
+
+    .portfolio-card:hover .overlay {
+        opacity: 0.75;
+    }
+
+    .text {
+        color: var(--white);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
 </style>
 
 <li class="portfolio-card">
-    <div>
-        {cover && (
-            <Image width={720} height={360} src={cover} alt={coverAlt} />
-        )}
-    </div>
-    <h4>
-        <a href={url} class="portfolio-link">
-            {title}
-        </a>
-    </h4>
+    <a href={url} class="portfolio-link">
+        <div>
+            {cover && (
+                <Image 
+                    width={720} 
+                    height={360} 
+                    src={cover} 
+                    alt={coverAlt} 
+                    class="portfolio-img"
+                />
+            )}
+        </div>
+        <div class="overlay">
+            <h4 class="text">
+                {title}
+            </h4>
+        </div>
+    </a>
 </li>
