@@ -22,6 +22,17 @@ const sortPosts = (
        border-radius: var(--border-radius); 
        padding: var(--margin-md);
     }
+
+    .portfolio-grid {
+        list-style-type: none;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        padding-inline-start: 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--margin-md);
+        width: 100%;
+    }
 </style>
 <BaseLayout
     title="Portfolio"
@@ -30,7 +41,7 @@ const sortPosts = (
 >
     <h1>Portfolio</h1>
     <div class="portfolio-section">
-        <ul class="portfolio-list">
+        <ul class="portfolio-grid">
 			{
 				posts
 					.sort(sortPosts)
@@ -40,6 +51,7 @@ const sortPosts = (
 							coverAlt={post.data.coverAlt}
 							url={`/storm/portfolio/${post.id}/`}
 							title={post.data.title}
+                            class="grid-item"
 						/>
 					))
 			}
