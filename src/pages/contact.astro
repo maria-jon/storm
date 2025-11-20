@@ -1,5 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+import FacebookIcon from "../assets/icons/icons8-facebook-24.svg"
+import InstagramIcon from "../assets/icons/icons8-instagram-24.svg"
+import MailIcon from "../assets/icons/icons8-mail.svg"
 ---
 <style>
     h1 {
@@ -14,6 +18,37 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
     .socials-section {
         margin-bottom: var(--margin-md);
+    }
+
+    .social-item {
+        display: flex;
+        align-items: center;
+        gap: var(--margin-md);
+        position: relative;
+    }
+
+    .social-link::after {
+        content: '';
+		position: absolute;
+		inset: 0;
+    }
+
+    .social-link {
+        color: var(--wine-red);
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    .social-item:hover > .social-icons {
+        fill: var(--dark-blue);
+    }
+
+    .social-item:hover > .social-link {
+        color: var(--dark-blue);
+    }
+
+    .social-icons {
+        fill: var(--wine-red);
     }
 
     .contact-section {
@@ -89,7 +124,34 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <h1>Contact</h1>
     <section class="socials-section">
         <h2>Social media</h2>
-        <p>Contact info etc</p>
+        <div class="social-item">
+            <InstagramIcon 
+                width={48}
+                height={48}
+                aria-hidden="true"
+                class="social-icons"
+            />
+            <a 
+                href="https://www.instagram.com/philleonfire/"
+                class="social-link"
+            >
+                Follow @phillefire on Instagram
+            </a>
+        </div>
+        <div class="social-item">
+            <MailIcon 
+                width={48}
+                height={48}
+                aria-hidden="true"
+                class="social-icons"
+            />
+            <a 
+                href="mailto:storm.philippa@gmail.com"
+                class="social-link"
+            >
+                Send me an email at storm.philippa@gmail.com
+            </a>
+        </div>
     </section>
 
     <section class="contact-section">
