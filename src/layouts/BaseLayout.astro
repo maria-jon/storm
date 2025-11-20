@@ -8,7 +8,7 @@ import Header from '../components/Header.astro';
 
 //type Props = CollectionEntry<'blog'>['data'];
 
-const {title, description} = Astro.props;
+const {title, description, background} = Astro.props;
 //const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
@@ -58,7 +58,7 @@ const {title, description} = Astro.props;
 
 	<body>
 		<Header />
-		<main>
+		<main class={background}>
 			<slot />
 		</main>
 		<Footer />
