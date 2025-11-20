@@ -1,0 +1,116 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+<style>
+    h1 {
+		color: var(--peachy-pink);
+	}
+
+    section {
+       background-color: var(--peachy-pink);
+       border-radius: var(--border-radius); 
+       padding: var(--margin-md);
+    }
+
+    .socials-section {
+        margin-bottom: var(--margin-md);
+    }
+
+    .contact-section {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact-form {
+        background-color: var(--wine-red);
+        width: 70%;
+        padding: 3em 2em;
+        border-radius: var(--border-radius);
+        display: flex;
+        flex-direction: column;
+        gap: var(--margin-lg);
+        align-items: center;
+        align-self: center;
+    }
+
+    .contact-form label {
+        display: flex;
+        flex-direction: column;
+        font-family: "Caprasimo", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 1.25em;
+        color: var(--peachy-pink);
+        line-height: 2;
+        width: 90%;
+    }
+
+    .contact-form label input, textarea {
+        border-radius: var(--border-radius);
+        border: none;
+        padding: var(--margin-sm);
+        width: 100%;
+    }
+
+    button {
+        border: none;
+        border-radius: var(--border-radius);
+        padding: var(--margin-sm);
+        background-color: var(--peachy-pink);
+        width: 50%;
+    }
+
+    button span {
+        font-family: "Caprasimo", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 1.25em;
+        color: var(--wine-red);
+        line-height: 2;
+    }
+
+    button:hover {
+        outline: 0.25em solid var(--peachy-pink);
+        background-color: var(--wine-red);
+        cursor: pointer;
+    }
+
+    button:hover span {
+        color: var(--peachy-pink);
+    }
+
+</style>
+
+<BaseLayout
+    title="Contact"
+    description="Lorem ipsum dolor sit amet"
+    background="wine-red"
+>
+    <h1>Contact</h1>
+    <section class="socials-section">
+        <h2>Social media</h2>
+        <p>Contact info etc</p>
+    </section>
+
+    <section class="contact-section">
+        <h2>Send a message</h2>
+        <form class="contact-form">
+            <label>
+                <span>Name</span>
+                <input type="text" id="contact-form-name">
+            </label>
+            <label>
+                <span>Email</span>
+                <input type="email" id="contact-form-email">
+            </label>
+            <label>
+                <span>Message</span>
+                <textarea id="contact-form-message"></textarea>
+            </label>
+            <button>
+                <span>Send</span>
+            </button>
+        </form>
+    </section>
+
+</BaseLayout>
