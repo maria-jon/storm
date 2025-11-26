@@ -9,7 +9,7 @@ import BaseLayout from './BaseLayout.astro';
 
 type Props = CollectionEntry<'portfolio'>['data'];
 
-const { title, description, date, updatedDate, cover, coverAlt, link, additionalImg } = Astro.props;
+const { title, description, date, updatedDate, cover, coverAlt, link, additionalImgs } = Astro.props;
 ---
 <style>
     .hero-image img {
@@ -39,6 +39,11 @@ const { title, description, date, updatedDate, cover, coverAlt, link, additional
                 }
             </div>
             <a href={link}>Link to</a>
+
+            <div>
+                {cover && <Image width={330} height={170} src={cover} alt={coverAlt} />}
+                {additionalImgs && <Image width={330} height={170} src={additionalImgs} alt={coverAlt} />}
+            </div>
         </div>
     </article>
 </BaseLayout>

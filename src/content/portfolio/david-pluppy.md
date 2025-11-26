@@ -5,6 +5,7 @@ date: 'Jun 07 2025'
 cover: '../../assets/artworks/david-pluppy.png'
 coverAlt: 'David Pluppy'
 link: 'https://www.google.com'
+additionalImgs: '../../assets/artworks/david-pluppy-back.png'
 featured: true
 ---
 

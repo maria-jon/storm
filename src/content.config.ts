@@ -29,7 +29,7 @@ const portfolio = defineCollection({
 			updatedDate: z.coerce.date().optional(),
 			cover: image(),
 			coverAlt: z.string(),
-			additionalImg: image().optional(),
+			additionalImgs: image().optional(),
 			link: z.string().optional(),
 			featured: z.boolean(),
 		}),
