@@ -35,7 +35,27 @@ const portfolio = defineCollection({
 		}),
 });
 
+const about = defineCollection({
+	// Load Markdown and MDX files in the `src/content/blog/` directory.
+	loader: glob({ base: './src/content/about', pattern: '**/*.md' }),
+	// Type-check frontmatter using a schema
+	schema: ({ image }) =>
+		z.object({
+			id: z.number(),
+			title: z.string(),
+			description: z.string(),
+			// Transform string to Date object
+			date: z.coerce.date(),
+			updatedDate: z.coerce.date().optional(),
+			cover: image(),
+			coverAlt: z.string(),
+			additionalImg: image().optional(),
+			link: z.string().optional(),
+		}),
+});
+
 export const collections = { 
 	blog: blog, 
 	portfolio: portfolio,
+	about: about,
 };

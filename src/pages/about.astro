@@ -1,9 +1,22 @@
 ---
 import { Image } from 'astro:assets';
-import Philippa from '../assets/Philippa.jpg';
+import Philippa from '../assets/about/Philippa.jpg';
 import BaseLayout from '../layouts/BaseLayout.astro';
----
+import { getCollection, type CollectionEntry, getEntry, render } from 'astro:content';
 
+type Props = CollectionEntry<'about'>['data'];
+
+const { title, description, date, updatedDate, cover, coverAlt, link, additionalImg } = Astro.props;
+
+const aboutPosts = await getCollection('about');
+
+
+/*const sortPosts = (
+  a: CollectionEntry<'about'>,
+  b: CollectionEntry<'about'>
+) => a.data.id.sort(b.data.id);*/
+
+---
 <style>
 	h1 {
 		color: var(--peachy-pink);
@@ -46,25 +59,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	background="wine-red"
 >
 	<h1>About</h1>
-	<section class="container">
-		<div class="about-img about-item">
-			<Image 
-				width={1440}
-				height={1707} 
-				src={Philippa} 
-				alt=""
-			/>
-		</div>
-		<div class="about-text about-item">
-			<p>
-				Storm Philippa Clarén är en av Malmös coolaste konstnärer, om du frågar oss. Hon skapar lite allt möjligt, men just nu är det mycket ben och kanin-skulpturer i stengodslera eller porslin. Hon har även en småskalig bruksproduktion, med bland annat fat i infärgad och kavlad porslinslera samt rökelseskulpturer.
-			</p>
-			<p>
-				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae, eius placeat modi labore culpa corrupti aliquid saepe ipsam totam eos temporibus enim porro id autem, rem ut nostrum ab repellendus!
-			</p>
-			<p>
-				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae, eius placeat modi labore culpa corrupti aliquid saepe ipsam totam eos temporibus enim porro id autem, rem ut nostrum ab repellendus!
-			</p>
-		</div>
-	</section>
+
+	{
+		aboutPosts.map((post) => (
+			<div class="container">
+				<div class="about-img about-item">
+					<Image 
+						width={1440}
+						height={1707} 
+						src={post.data.cover} 
+						alt={post.data.coverAlt}
+					/>
+				</div>
+				<slot />
+				<div class="about-text about-item">
+					<p>
+						{post.body}
+					</p>
+				</div>
+			</div>
+		))
+	}
 </BaseLayout>
