@@ -2,28 +2,35 @@
 import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
 import InstagramIcon from "../assets/icons/icons8-instagram-24.svg";
+import MenuIcon from "../assets/icons/menu.svg";
 ---
 
 <header>
 	<nav>
 		<h2><a href="/storm/">{SITE_TITLE}</a></h2>
+		<button class="menu-button">
+			<MenuIcon
+				width={32}
+				height={32}
+				aria-label="Toggle menu"
+			/>
+		</button>
 		<div class="internal-links">
 			<HeaderLink href="/storm/">Home</HeaderLink>
 			<HeaderLink href="/storm/portfolio">Portfolio</HeaderLink>
 			<HeaderLink href="/storm/about">About</HeaderLink>
 			<HeaderLink href="/storm/contact">Contact</HeaderLink>
-		</div>
-		<div class="social-links">
-			<a href="https://www.instagram.com/philleonfire/" target="_blank">
-				<span class="sr-only">Follow @phillefire on Instagram</span>
-				<InstagramIcon 
-					width={32}
-					height={32}
-					aria-hidden="true"
-					class="social-icons"
-				/>
-			</a>
-			
+			<div class="social-links">
+				<a href="https://www.instagram.com/philleonfire/" target="_blank">
+					<span class="sr-only">Follow @phillefire on Instagram</span>
+					<InstagramIcon 
+						width={32}
+						height={32}
+						aria-hidden="true"
+						class="social-icons"
+					/>
+				</a>
+			</div>
 		</div>
 	</nav>
 </header>
@@ -31,37 +38,65 @@ import InstagramIcon from "../assets/icons/icons8-instagram-24.svg";
 <style>
 	header {
 		margin: 0 0 1em;
-		padding: 0 1em;
+		padding: 0 0.5em;
 		background-color: var(--peachy-pink);
 		box-shadow: 0 2px 8px rgba(var(--black), 5%);
 	}
 	h2 {
 		margin: 0;
-		font-size: 1.5em;
+		font-size: clamp(1em, 2.5vw, 3em);
+		padding: 1em 0;
 	}
 
 	h2 a,
 	h2 a.active {
 		text-decoration: none;
 	}
+
 	nav {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 	}
+
 	nav a {
-		padding: 1em 0.5em;
 		color: var(--wine-red);
+		border-top: 4px solid transparent;
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
 	}
+
 	nav a.active {
 		text-decoration: none;
 		border-bottom-color: var(--wine-red);
 	}
+
+	.menu-button {
+		display: none;
+	}
+
+	.internal-links {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.internal-links a {
+		padding: 1em 1em;
+	}
+
+	.internal-links a:hover {
+		border-bottom-color: var(--dark-blue);
+		transition: all 0.5s ease-in;
+	}
+
 	.social-links,
 	.social-links a {
 		display: flex;
+		border-top: none;
+	}
+
+	.social-links a:hover {
+		border-bottom-color: transparent;
 	}
 
 	.social-links a:hover > .social-icons {
@@ -73,8 +108,79 @@ import InstagramIcon from "../assets/icons/icons8-instagram-24.svg";
 	}
 
 	@media (max-width: 600px) {
-		.social-links {
+		h2 {
+			font-size: clamp(1em, 5vw, 4em);
+		}
+
+		.menu-button {
+			display: inline-block;
+			background-color: transparent;
+			border: none;
+		}
+
+		.internal-links {
 			display: none;
+		}
+
+		.open-menu {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: flex-start;
+			gap: var(--margin-md);
+			padding-top: var(--margin-lg);
+			position: absolute;
+			inset-inline-start: 0px;
+			inset-block-start: 70px;
+			background-color: var(--wine-red);
+			z-index: 1;
+			width: 100vw;
+			height: 100%;
+		}
+
+		.open-menu a {
+			color: var(--peachy-pink);
+			width: 90%;
+			text-align: center;
+			font-size: 1.25em;
+			border-radius: var(--margin-lg);
+		}
+
+		.open-menu a:hover {
+			background-color: var(--peachy-pink);
+			color: var(--wine-red);
+			border-bottom-color: transparent;
+		}
+
+		.social-icons {
+			fill: var(--peachy-pink);
+		}
+
+		.social-links a:hover {
+			border-radius: var(--margin-lg);
+		}
+
+		.social-links a:hover > .social-icons {
+			fill: var(--wine-red);
 		}
 	}
 </style>
+
+<script>
+	const menuButton = document.querySelector('button.menu-button');
+	const menuDropdown = document.querySelector('div.internal-links');
+
+	let menuOpen = false;
+
+	const toggleMenu = () => {
+		menuOpen = !menuOpen;
+
+		menuDropdown?.classList.toggle('open-menu');
+
+		if(menuOpen) {
+			menuDropdown?.addEventListener('click', toggleMenu);
+		}
+	}
+
+	menuButton?.addEventListener('click', toggleMenu);
+</script>
