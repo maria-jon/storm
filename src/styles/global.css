@@ -1,3 +1,7 @@
+* {
+	box-sizing: border-box;
+}
+
 :root {
 	--wine-red: #521407;
 	--peachy-pink: #F9D4D2;
