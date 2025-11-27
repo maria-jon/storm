@@ -2,9 +2,11 @@
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from "astro:content";
 
-import PortfolioCard from '../components/PortfolioCard.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageTitle from '../components/PageTitle.astro';
+import PortfolioCard from '../components/PortfolioCard.astro';
+
 import '../styles/index.css';
 
 const sortPosts = (
@@ -21,7 +23,10 @@ const featuredPosts = await getCollection('portfolio', ({ data }) => data.featur
 	description={SITE_DESCRIPTION}
 	background="wine-red"
 >
-	<h1 class="home-title">Storm</h1>
+	<PageTitle 
+		title="Storm"
+		color="text-peachy-pink"
+	/>
 	<div class="home">
 		<ul class="portfolio-list">
 			{

@@ -1,9 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-
 import FacebookIcon from "../assets/icons/icons8-facebook-24.svg"
 import InstagramIcon from "../assets/icons/icons8-instagram-24.svg"
 import MailIcon from "../assets/icons/icons8-mail.svg"
+import PageTitle from "../components/PageTitle.astro";
 ---
 <style>
     h1 {
@@ -121,7 +121,10 @@ import MailIcon from "../assets/icons/icons8-mail.svg"
     description="Lorem ipsum dolor sit amet"
     background="wine-red"
 >
-    <h1>Contact</h1>
+    <PageTitle 
+        title="Contact"
+        color="text-peachy-pink"
+    />
     <section class="socials-section">
         <h2>Social media</h2>
         <div class="social-item">

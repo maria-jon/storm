@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AboutSection from '../components/AboutSection.astro';
+import PageTitle from '../components/PageTitle.astro';
 import { getCollection, type CollectionEntry, getEntry, render } from 'astro:content';
 
 const aboutPosts = await getCollection('about');
@@ -35,8 +36,10 @@ const sortPosts = (
 	description="Lorem ipsum dolor sit amet"
 	background="wine-red"
 >
-	<h1>About</h1>
-
+	<PageTitle 
+		title="About"
+		color="text-peachy-pink"
+	/>
 	<div class="wrapper">
 		{
 			aboutPosts
