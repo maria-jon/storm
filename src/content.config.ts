@@ -26,11 +26,12 @@ const portfolio = defineCollection({
 			description: z.string(),
 			// Transform string to Date object
 			date: z.coerce.date(),
-			updatedDate: z.coerce.date().optional(),
 			cover: image(),
 			coverAlt: z.string(),
-			additionalImgs: image().optional(),
+			tags: z.array(z.string()).optional(),
+			additionalImgs: z.array(image()).optional(),
 			link: z.string().optional(),
+			linkText: z.string().optional(),
 			featured: z.boolean(),
 		}),
 });
@@ -49,7 +50,7 @@ const about = defineCollection({
 			updatedDate: z.coerce.date().optional(),
 			cover: image(),
 			coverAlt: z.string(),
-			additionalImg: image().optional(),
+			additionalImgs: image().optional(),
 			link: z.string().optional(),
 		}),
 });

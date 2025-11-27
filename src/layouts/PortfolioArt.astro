@@ -1,49 +1,119 @@
 ---
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
-import Header from '../components/Header.astro';
 import BaseLayout from './BaseLayout.astro';
 
 type Props = CollectionEntry<'portfolio'>['data'];
 
-const { title, description, date, updatedDate, cover, coverAlt, link, additionalImgs } = Astro.props;
+const { 
+    title, 
+    description, 
+    date, 
+    cover, 
+    coverAlt, 
+    link, 
+    linkText,
+    tags,
+    additionalImgs,
+} = Astro.props;
 ---
 <style>
+    .portfolio-artwork {
+        border-radius: var(--border-radius);
+        display: flex;
+        flex-direction: column;
+        gap: var(--margin-md);
+    }
+
+    .hero-image {
+        width: 100%;
+        max-height: 126vh;
+        background-color: var(--peachy-pink);
+        padding: var(--margin-md);
+        border-radius: var(--border-radius);
+    }
+
     .hero-image img {
+		width: 100%;
+        height: 100%;
+		object-fit: cover;
+        border: 0.5em solid var(--wine-red);
+        border-radius: var(--border-radius);
+    }
+
+    .prose, footer {
+        background-color: var(--peachy-pink);
+        padding: var(--margin-md);
+        border-radius: var(--border-radius);
+    }
+
+    .artwork-title {
+        font-size: clamp(2.5em, 8vw, 6em);
+    }
+
+    .footer-info {
+        display: flex;
+        gap: var(--margin-md);
+    }
+
+    .additional-images {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+        gap: var(--margin-md);
+    }
+
+    .additional-images img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
         border-radius: var(--border-radius);
     }
 </style>
 
-<BaseLayout title={title} description={description}>
-    <article>
+<BaseLayout 
+    title={title} 
+    description={description} 
+    background="wine-red"
+>
+    <article class="portfolio-artwork">
         <div class="hero-image">
-            {cover && <Image width={1020} height={510} src={cover} alt={coverAlt} />}
+            {cover && <Image width={940} height={1268} src={cover} alt={coverAlt} />}
         </div>
         <div class="prose">
-            <div class="title">
-                <h1>{title}</h1>
-                <hr />
-            </div>
+            <h1 class="artwork-title">
+                {title}
+            </h1>
             <slot />
-            <div class="date">
-                <FormattedDate date={date} />
+        </div>
+        <footer>
+            <div class="footer-info">
+                <div class="date">
+                    <FormattedDate date={date} />
+                </div>
                 {
-                    updatedDate && (
-                        <div class="last-updated-on">
-                            Updated <FormattedDate date={updatedDate} />
-                        </div>
-                    )
+                    link && <a href={link}
+                    >
+                        Link {linkText && <span>to {linkText}</span>}
+                    </a>
                 }
             </div>
-            <a href={link}>Link to</a>
-
-            <div>
-                {cover && <Image width={330} height={170} src={cover} alt={coverAlt} />}
-                {additionalImgs && <Image width={330} height={170} src={additionalImgs} alt={coverAlt} />}
-            </div>
-        </div>
+            {
+                additionalImgs && <div class="additional-images">
+                    {
+                        additionalImgs.map((img) => (
+                            <img 
+                                width={img.width} 
+                                height={img.height} 
+                                src={img.src} 
+                                alt=""
+                            />
+                        ))
+                    }
+                    {cover && <Image width={940} height={1268} src={cover} alt={coverAlt} />}
+                </div>
+            }
+        </footer>
     </article>
 </BaseLayout>

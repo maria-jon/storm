@@ -5,6 +5,7 @@ date: 'Jun 07 2025'
 cover: '../../assets/artworks/pink-heart.png'
 coverAlt: 'Class of Bunnies'
 link: 'https://www.google.com'
+linkText: 'Cool Gallery'
 featured: false
 ---
 
