@@ -8,7 +8,7 @@ import CloseIcon from "../assets/icons/close.svg";
 
 <header>
 	<nav>
-		<a href="/storm/" class="page-title">
+		<a href="/storm/" class="header-title">
 			<div class="blink">
 				<span class="sr-only">Storm Philippa Clarén</span>
 			</div>
@@ -58,15 +58,14 @@ import CloseIcon from "../assets/icons/close.svg";
 		box-shadow: 0 2px 8px rgba(var(--black), 5%);
 	}
 
-	.page-title {
+	.header-title {
 		display: flex;
+		align-items: center;
 	}
 
 	.blink {
-		display: flex;
-		align-items: center;
         width: 48px;
-        height: 64px;
+        height: 60px;
         background-image: url('../assets/no-blink.png');
         background-size: cover;
     }
