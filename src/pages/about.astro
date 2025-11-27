@@ -5,8 +5,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import AboutSection from '../components/AboutSection.astro';
 import { getCollection, type CollectionEntry, getEntry, render } from 'astro:content';
 
-const { title, description, date, updatedDate, cover, coverAlt, link, additionalImg } = Astro.props;
-
 const aboutPosts = await getCollection('about');
 
 const sortPosts = (
@@ -46,11 +44,8 @@ const sortPosts = (
 					cover={post.data.cover}
 					coverAlt={post.data.coverAlt}
 					title={post.data.title}
-				>
-					<p slot="text">
-						{post.body}
-					</p>
-				</AboutSection>
+					text={post}
+				/>
 			))
 		}
 	</div>
