@@ -1,0 +1,63 @@
+---
+import { Image } from 'astro:assets';
+
+const { title, description, date, updatedDate, cover, coverAlt, link, additionalImg } = Astro.props;
+
+---
+<div class="container">
+    <div class="about-img about-item">
+        {cover && (
+            <Image 
+                width={1440}
+                height={1707} 
+                src={cover} 
+                alt={coverAlt}
+            />
+        )}
+    </div>
+    <slot />
+    <div class="about-text about-item">
+        <h2>{title}</h2>
+        <slot name="text" />
+    </div>
+</div>
+
+<style>
+    .container {
+		display: flex;
+		justify-content: space-between;
+		gap: 1em;
+	}
+
+	.about-img {
+		max-width: 45%;
+		max-height: auto;
+		border-radius: var(--border-radius);
+		overflow: hidden;
+	}
+
+	.about-img img {
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+	}
+
+	.about-text {
+		background-color: var(--peachy-pink);
+		max-width: 45%;
+		border-radius: var(--border-radius);
+		padding: var(--margin-md);
+	}
+
+    h2 {
+        font-size: 2em;
+    }
+
+	.about-item {
+		flex: 0 0 auto;
+	}
+
+    .container:nth-child(even) {
+		flex-direction: row-reverse;
+	}
+</style>

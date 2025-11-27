@@ -2,19 +2,19 @@
 import { Image } from 'astro:assets';
 import Philippa from '../assets/about/Philippa.jpg';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import AboutSection from '../components/AboutSection.astro';
 import { getCollection, type CollectionEntry, getEntry, render } from 'astro:content';
-
-type Props = CollectionEntry<'about'>['data'];
 
 const { title, description, date, updatedDate, cover, coverAlt, link, additionalImg } = Astro.props;
 
 const aboutPosts = await getCollection('about');
 
-
-/*const sortPosts = (
+const sortPosts = (
   a: CollectionEntry<'about'>,
   b: CollectionEntry<'about'>
-) => a.data.id.sort(b.data.id);*/
+) => {
+	return a.data.id - b.data.id; 
+};
 
 ---
 <style>
@@ -22,34 +22,11 @@ const aboutPosts = await getCollection('about');
 		color: var(--peachy-pink);
 	}
 
-	.container {
+	.wrapper {
 		display: flex;
+		flex-direction: column;
 		justify-content: space-between;
 		gap: 1em;
-	}
-
-	.about-img {
-		max-width: 45%;
-		max-height: auto;
-		border-radius: var(--border-radius);
-		overflow: hidden;
-	}
-
-	.about-img img {
-		height: 100%;
-		width: 100%;
-		object-fit: cover;
-	}
-
-	.about-text {
-		background-color: var(--peachy-pink);
-		max-width: 45%;
-		border-radius: var(--border-radius);
-		padding: var(--margin-md);
-	}
-
-	.about-item {
-		flex: 0 0 auto;
 	}
 </style>
 
@@ -60,24 +37,21 @@ const aboutPosts = await getCollection('about');
 >
 	<h1>About</h1>
 
-	{
-		aboutPosts.map((post) => (
-			<div class="container">
-				<div class="about-img about-item">
-					<Image 
-						width={1440}
-						height={1707} 
-						src={post.data.cover} 
-						alt={post.data.coverAlt}
-					/>
-				</div>
-				<slot />
-				<div class="about-text about-item">
-					<p>
+	<div class="wrapper">
+		{
+			aboutPosts
+			.sort(sortPosts)
+			.map((post) => (
+				<AboutSection
+					cover={post.data.cover}
+					coverAlt={post.data.coverAlt}
+					title={post.data.title}
+				>
+					<p slot="text">
 						{post.body}
 					</p>
-				</div>
-			</div>
-		))
-	}
+				</AboutSection>
+			))
+		}
+	</div>
 </BaseLayout>
