@@ -19,10 +19,10 @@ const featuredPosts = await getCollection('portfolio', ({ data }) => data.featur
 <BaseLayout
 	title={SITE_TITLE}
 	description={SITE_DESCRIPTION}
-	background="peachy-pink"
+	background="wine-red"
 >
 	<h1>Storm</h1>
-	<section>
+	<div class="home">
 		<ul class="portfolio-list">
 			{
 				featuredPosts
@@ -37,5 +37,5 @@ const featuredPosts = await getCollection('portfolio', ({ data }) => data.featur
 					))
 			}
 		</ul>
-	</section>
+	</div>
 </BaseLayout>

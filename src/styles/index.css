@@ -1,13 +1,9 @@
-
-/*
-.portfolio-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    overflow: scroll;
+h1 {
+    color: var(--peachy-pink);
 }
 
-.portfolio-list li {
-    flex: 0 0 auto;
+.home {
+    padding: var(--margin-md);
+    border-radius: var(--border-radius);
+    background-color: var(--peachy-pink);
 }
-*/
