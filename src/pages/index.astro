@@ -12,7 +12,9 @@ import '../styles/index.css';
 const sortPosts = (
   a: CollectionEntry<'portfolio'>,
   b: CollectionEntry<'portfolio'>
-) => a.data.title.localeCompare(b.data.title);
+) => b.data.date.valueOf() - a.data.date.valueOf();
+
+//a.data.title.localeCompare(b.data.title);
 
 const featuredPosts = await getCollection('portfolio', ({ data }) => data.featured === true);
 

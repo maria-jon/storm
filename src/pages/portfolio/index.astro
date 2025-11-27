@@ -10,7 +10,7 @@ const posts = (await getCollection('portfolio'))
 const sortPosts = (
   a: CollectionEntry<'portfolio'>,
   b: CollectionEntry<'portfolio'>
-) => a.data.title.localeCompare(b.data.title);
+) => b.data.date.valueOf() - a.data.date.valueOf();
 
 ---
 <style>
