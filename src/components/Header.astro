@@ -3,6 +3,7 @@ import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
 import InstagramIcon from "../assets/icons/icons8-instagram-24.svg";
 import MenuIcon from "../assets/icons/menu.svg";
+import CloseIcon from "../assets/icons/close.svg";
 ---
 
 <header>
@@ -20,6 +21,13 @@ import MenuIcon from "../assets/icons/menu.svg";
 				width={32}
 				height={32}
 				aria-label="Toggle menu"
+				class="burger-icon"
+			/>
+			<CloseIcon
+				width={32}
+				height={32}
+				aria-label="Toggle menu"
+				class="close-icon hidden"
 			/>
 		</button>
 		<div class="internal-links">
@@ -133,6 +141,10 @@ import MenuIcon from "../assets/icons/menu.svg";
 		fill: var(--wine-red);
 	}
 
+	.hidden {
+		display: none;
+	}
+
 	@media (max-width: 600px) {
 		h2 {
 			font-size: clamp(1em, 5vw, 4em);
@@ -195,6 +207,8 @@ import MenuIcon from "../assets/icons/menu.svg";
 <script>
 	const menuButton = document.querySelector('button.menu-button');
 	const menuDropdown = document.querySelector('div.internal-links');
+	const menuIconBurger = document.querySelector('.burger-icon');
+	const menuIconClose = document.querySelector('.close-icon');
 
 	let menuOpen = false;
 
@@ -202,6 +216,8 @@ import MenuIcon from "../assets/icons/menu.svg";
 		menuOpen = !menuOpen;
 
 		menuDropdown?.classList.toggle('open-menu');
+		menuIconBurger?.classList.toggle('hidden');
+		menuIconClose?.classList.toggle('hidden');
 
 		if(menuOpen) {
 			menuDropdown?.addEventListener('click', toggleMenu);
