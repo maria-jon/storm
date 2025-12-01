@@ -6,12 +6,26 @@ import { getCollection, type CollectionEntry, getEntry, render } from 'astro:con
 
 const aboutPosts = await getCollection('about');
 
+/*
 const sortPosts = (
   a: CollectionEntry<'about'>,
   b: CollectionEntry<'about'>
 ) => {
 	return a.data.id - b.data.id; 
 };
+*/
+
+const order = [
+  "Storm Philippa",
+  "Exhibitions",
+  "Scholarships",
+  "Education",
+];
+
+const orderedAbout = aboutPosts.sort(
+  (a, b) =>
+    order.indexOf(a.data.title) - order.indexOf(b.data.title)
+);
 
 ---
 <style>
@@ -42,8 +56,9 @@ const sortPosts = (
 	/>
 	<div class="wrapper">
 		{
-			aboutPosts
-			.sort(sortPosts)
+			/*aboutPosts
+			.sort(sortPosts)*/
+			orderedAbout
 			.map((post) => (
 				<AboutSection
 					cover={post.data.cover}
