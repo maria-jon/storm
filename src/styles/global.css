@@ -38,7 +38,7 @@ body {
 	background-color: var(--wine-red);
 	word-wrap: break-word;
 	overflow-wrap: break-word;
-	color: rgb(var(--gray-dark));
+	color: var(--black);
 	font-size: 1em;
 	line-height: 1.7;
 }
@@ -112,7 +112,6 @@ main {
 	flex-direction: column;
 	gap: var(--margin-md)
 }
-
 
 textarea {
 	width: 100%;
