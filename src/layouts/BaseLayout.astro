@@ -14,12 +14,10 @@ const {title, description, background} = Astro.props;
 		<BaseHead title={title} description={description} />
 		<style>
             main {
-                width: 720px;
-				/* width: 1000px; */
-                max-width: calc(100% - 2em);
                 margin: auto;
                 padding: 2em 1em;
                 border-radius: var(--border-radius);
+                width: var(--page-width);
             }
 
 			.hero-image {
@@ -54,12 +52,6 @@ const {title, description, background} = Astro.props;
 			.last-updated-on {
 				font-style: italic;
 			}
-
-            @media (max-width: 720px) {
-                main {
-                    padding: 1em;
-                }
-            }
 		</style>
 	</head>
 
