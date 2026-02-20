@@ -1,0 +1,86 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from "astro:content";
+import PortfolioCard from '../../components/PortfolioCard.astro';
+import PageTitle from "../../components/PageTitle.astro";
+
+const posts = (await getCollection('portfolio'))
+
+const sortPosts = (
+  a: CollectionEntry<'portfolio'>,
+  b: CollectionEntry<'portfolio'>
+) => b.data.date.valueOf() - a.data.date.valueOf();
+
+---
+<style>
+    h1 {
+		color: var(--peachy-pink);
+	}
+
+    .portfolio-section {
+       background-color: var(--peachy-pink);
+       border-radius: var(--border-radius); 
+       padding: var(--margin-md);
+    }
+
+    .portfolio-grid {
+        list-style-type: none;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        padding-inline-start: 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--margin-xl);
+        width: 100%;
+    }
+
+    .available-pieces-info {
+        margin-top: var(--margin-xl);
+    }
+
+    @media (max-width: 600px) {
+        .portfolio-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--margin-md);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .portfolio-grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--margin-md);
+        }
+    }
+</style>
+<BaseLayout
+    title="Available Pieces"
+    description="Lorem ipsum dolor sit amet"
+    background="wine-red"
+>
+    <PageTitle 
+        title="Available Pieces"
+        color="text-peachy-pink"
+    />
+    <div class="portfolio-section">
+        <ul class="portfolio-grid">
+			{
+				posts
+					.sort(sortPosts)
+					.map((post) => (
+						<PortfolioCard 
+							cover={post.data.cover}
+							coverAlt={post.data.coverAlt}
+							url={`/storm/portfolio/${post.id}/`}
+							title={post.data.title}
+                            class="grid-item"
+						/>
+					))
+			}
+		</ul>
+    </div>
+    <div class="portfolio-section available-pieces-info">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum eius dolorem eaque dicta beatae, sint expedita cumque dolore alias quia repellendus repudiandae asperiores, ducimus cupiditate veniam blanditiis ad, ratione unde?
+    </div>
+
+</BaseLayout>
