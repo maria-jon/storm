@@ -2,7 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from "astro:content";
-import PortfolioCard from '../../components/PortfolioCard.astro';
+import AvailableCard from '../../components/AvailableCard.astro';
 import PageTitle from "../../components/PageTitle.astro";
 
 const posts = (await getCollection('portfolio'))
@@ -70,11 +70,12 @@ const availablePosts = await getCollection('portfolio', ({ data }) => data.avail
 				availablePosts
 					.sort(sortPosts)
 					.map((post) => (
-						<PortfolioCard 
+						<AvailableCard 
 							cover={post.data.cover}
 							coverAlt={post.data.coverAlt}
 							url={`/storm/portfolio/${post.id}/`}
 							title={post.data.title}
+                            availableText={post.data.availableText}
                             class="grid-item"
 						/>
 					))

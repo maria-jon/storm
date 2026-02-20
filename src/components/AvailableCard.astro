@@ -1,0 +1,68 @@
+---
+import { Image } from "astro:assets";
+
+const { cover, coverAlt, url, title, availableText } = Astro.props;
+
+const titleId = (title: string) => {
+  const removeSpaces = title.replace(/\s+/g, '-').toLowerCase(); 
+  return removeSpaces;
+};
+---
+<style>
+    .portfolio-card {
+        position: relative;
+        max-width: 100%;
+        border-radius: var(--border-radius);
+	    border: 0.5em solid var(--wine-red);
+        overflow: hidden;
+    }
+
+    .portfolio-img {
+        display: block;
+        max-width: 100%;
+	    height: auto;
+    }
+
+    .overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        max-height: 100%;
+        width: 100%;
+        opacity: 0.75;
+        background-color: var(--black);
+        padding: 0 var(--margin-sm);
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+    .text {
+        color: var(--white);
+        width: 100%;
+        text-align: left;
+    }
+
+</style>
+
+<li class="portfolio-card">
+    <a href={url} class="portfolio-link">
+        <div>
+            {cover && (
+                <Image 
+                    width={720} 
+                    height={360} 
+                    src={cover} 
+                    alt={coverAlt} 
+                    class="portfolio-img"
+                />
+            )}
+        </div>
+        <div class="overlay">
+            <p class="text text-small">
+                {availableText ? availableText : title}
+            </p>
+        </div>
+    </a>
+</li>
