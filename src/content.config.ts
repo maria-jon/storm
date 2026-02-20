@@ -32,7 +32,8 @@ const portfolio = defineCollection({
 			additionalImgs: z.array(image()).optional(),
 			link: z.string().optional(),
 			linkText: z.string().optional(),
-			featured: z.boolean(),
+			available: z.boolean(),
+			availableText: z.string().optional(),
 		}),
 });
 

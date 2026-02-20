@@ -12,7 +12,7 @@ additionalImgs: [
     '../../assets/artworks/silver-back.jpg',
     '../../assets/artworks/silver.png',
 ]
-featured: true 
+available: true 
 ---
 The core of Storm Philippa Clarén's art is color, patterns and shiny surfaces. Storm describes herself as a magpie that is drawn to everything that glitters, whether it is silk fabrics or a glazed porcelain clay. 
 

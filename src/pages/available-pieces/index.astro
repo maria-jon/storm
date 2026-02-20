@@ -12,6 +12,8 @@ const sortPosts = (
   b: CollectionEntry<'portfolio'>
 ) => b.data.date.valueOf() - a.data.date.valueOf();
 
+const availablePosts = await getCollection('portfolio', ({ data }) => data.available === true);
+
 ---
 <style>
     h1 {
@@ -65,7 +67,7 @@ const sortPosts = (
     <div class="portfolio-section">
         <ul class="portfolio-grid">
 			{
-				posts
+				availablePosts
 					.sort(sortPosts)
 					.map((post) => (
 						<PortfolioCard 
