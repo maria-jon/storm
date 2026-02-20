@@ -161,6 +161,12 @@ hr {
 	border-top: 1px solid rgb(var(--gray-light));
 }
 
+@media (max-width: 600px) {
+	:root {
+		--page-margin: clamp(1rem, calc(1rem + (2 - 1) * ((100vw - 25rem) / (75 - 25))), 2rem);
+	}
+}
+
 /*
 @media (max-width: 600px) {
 	main {
