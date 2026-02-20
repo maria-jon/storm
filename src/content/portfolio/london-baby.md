@@ -4,7 +4,7 @@ description: 'Lorem ipsum dolor sit amet'
 date: 'Jul 08 2025'
 cover: '../../assets/artworks/london-baby.jpg'
 coverAlt: 'London baby'
-featured: true
+available: true
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, **sed do eiusmod tempor incididunt ut labore et dolore magna aliqua**. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. 

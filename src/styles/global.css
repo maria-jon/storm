@@ -18,6 +18,11 @@
 	--margin-lg: 1.5em;
 	--margin-xl: 2em;
 
+	--max-page-width: 90rem;
+	--page-margin: clamp(1.5rem, calc(1.5rem + (5 - 1.5) * ((100vw - 25rem) / (75 - 25))), 5rem);
+	--page-width: calc(min(100vw, var(--max-page-width)) - var(--page-margin) * 2);
+
+
 	--border-radius: 0.75em; 
 
 	--accent: #2337ff;
@@ -43,8 +48,8 @@ body {
 	line-height: 1.7;
 }
 main {
-	width: 720px;
-	max-width: calc(100% - 2em);
+
+	width: var(--page-width);
 	margin: auto;
 	padding: 2em 1em;
 }
@@ -91,6 +96,12 @@ p {
 }
 .prose p {
 	margin-bottom: 2em;
+}
+
+.text-small {
+	margin-bottom: 0.5em;
+	font-size: 0.75em;
+	line-height: 1.5;
 }
 
 main {
@@ -151,6 +162,13 @@ hr {
 }
 
 @media (max-width: 600px) {
+	:root {
+		--page-margin: clamp(1rem, calc(1rem + (2 - 1) * ((100vw - 25rem) / (75 - 25))), 2rem);
+	}
+}
+
+/*
+@media (max-width: 600px) {
 	main {
 		padding: 1em;
 	}
@@ -161,6 +179,7 @@ hr {
 		padding: 1em;
 	}
 }
+*/
 
 .sr-only {
 	border: 0;

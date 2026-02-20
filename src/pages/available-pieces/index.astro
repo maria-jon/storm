@@ -1,13 +1,9 @@
 ---
+import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from "astro:content";
-
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import PageTitle from '../components/PageTitle.astro';
-import PortfolioCard from '../components/PortfolioCard.astro';
-
-import '../styles/index.css';
+import AvailableCard from '../../components/AvailableCard.astro';
+import PageTitle from "../../components/PageTitle.astro";
 
 const posts = (await getCollection('portfolio'))
 
@@ -15,6 +11,8 @@ const sortPosts = (
   a: CollectionEntry<'portfolio'>,
   b: CollectionEntry<'portfolio'>
 ) => b.data.date.valueOf() - a.data.date.valueOf();
+
+const availablePosts = await getCollection('portfolio', ({ data }) => data.available === true);
 
 ---
 <style>
@@ -39,6 +37,10 @@ const sortPosts = (
         width: 100%;
     }
 
+    .available-pieces-info {
+        margin-top: var(--margin-xl);
+    }
+
     @media (min-width: 600px) {
         .portfolio-grid {
             grid-template-columns: repeat(2, 1fr);
@@ -54,31 +56,34 @@ const sortPosts = (
     }
 </style>
 <BaseLayout
-	title={SITE_TITLE}
-	description={SITE_DESCRIPTION}
+    title="Available Pieces"
     description="Lorem ipsum dolor sit amet"
     background="wine-red"
 >
     <PageTitle 
-        title="Portfolio"
+        title="Available Pieces"
         color="text-peachy-pink"
     />
     <div class="portfolio-section">
         <ul class="portfolio-grid">
 			{
-				posts
+				availablePosts
 					.sort(sortPosts)
 					.map((post) => (
-						<PortfolioCard 
+						<AvailableCard 
 							cover={post.data.cover}
 							coverAlt={post.data.coverAlt}
 							url={`/storm/portfolio/${post.id}/`}
 							title={post.data.title}
+                            availableText={post.data.availableText}
                             class="grid-item"
 						/>
 					))
 			}
 		</ul>
+    </div>
+    <div class="portfolio-section available-pieces-info">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum eius dolorem eaque dicta beatae, sint expedita cumque dolore alias quia repellendus repudiandae asperiores, ducimus cupiditate veniam blanditiis ad, ratione unde?
     </div>
 
 </BaseLayout>
