@@ -32,8 +32,8 @@ const availablePosts = await getCollection('portfolio', ({ data }) => data.avail
         margin-block-end: 0;
         padding-inline-start: 0;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--margin-xl);
+        grid-template-columns: repeat(1, 1fr);
+        gap: var(--margin-md);
         width: 100%;
     }
 
@@ -41,7 +41,7 @@ const availablePosts = await getCollection('portfolio', ({ data }) => data.avail
         margin-top: var(--margin-xl);
     }
 
-    @media (max-width: 600px) {
+    @media (min-width: 600px) {
         .portfolio-grid {
             grid-template-columns: repeat(2, 1fr);
             gap: var(--margin-md);
