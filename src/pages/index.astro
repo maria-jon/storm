@@ -9,30 +9,64 @@ import PortfolioCard from '../components/PortfolioCard.astro';
 
 import '../styles/index.css';
 
+const posts = (await getCollection('portfolio'))
+
 const sortPosts = (
   a: CollectionEntry<'portfolio'>,
   b: CollectionEntry<'portfolio'>
 ) => b.data.date.valueOf() - a.data.date.valueOf();
 
-//a.data.title.localeCompare(b.data.title);
-
-const featuredPosts = await getCollection('portfolio', ({ data }) => data.featured === true);
-
 ---
+<style>
+    h1 {
+		color: var(--peachy-pink);
+	}
 
+    .portfolio-section {
+       background-color: var(--peachy-pink);
+       border-radius: var(--border-radius); 
+       padding: var(--margin-md);
+    }
+
+    .portfolio-grid {
+        list-style-type: none;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        padding-inline-start: 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--margin-xl);
+        width: 100%;
+    }
+
+    @media (max-width: 600px) {
+        .portfolio-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--margin-md);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .portfolio-grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--margin-md);
+        }
+    }
+</style>
 <BaseLayout
 	title={SITE_TITLE}
 	description={SITE_DESCRIPTION}
-	background="wine-red"
+    description="Lorem ipsum dolor sit amet"
+    background="wine-red"
 >
-	<PageTitle 
-		title="Storm"
-		color="text-peachy-pink"
-	/>
-	<div class="home">
-		<ul class="portfolio-list">
+    <PageTitle 
+        title="Portfolio"
+        color="text-peachy-pink"
+    />
+    <div class="portfolio-section">
+        <ul class="portfolio-grid">
 			{
-				featuredPosts
+				posts
 					.sort(sortPosts)
 					.map((post) => (
 						<PortfolioCard 
@@ -40,9 +74,11 @@ const featuredPosts = await getCollection('portfolio', ({ data }) => data.featur
 							coverAlt={post.data.coverAlt}
 							url={`/storm/portfolio/${post.id}/`}
 							title={post.data.title}
+                            class="grid-item"
 						/>
 					))
 			}
 		</ul>
-	</div>
+    </div>
+
 </BaseLayout>
