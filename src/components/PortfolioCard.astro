@@ -17,10 +17,16 @@ const titleId = (title: string) => {
         overflow: hidden;
     }
 
+    .portfolio-link, .portfolio-card-container {
+        width: 100%;
+        height: 100%;
+    }
+
     .portfolio-img {
         display: block;
-        max-width: 100%;
-	    height: auto;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     .overlay {
@@ -55,7 +61,7 @@ const titleId = (title: string) => {
 
 <li class="portfolio-card">
     <a href={url} class="portfolio-link">
-        <div>
+        <div class="portfolio-card-container">
             {cover && (
                 <Image 
                     width={720} 
