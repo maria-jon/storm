@@ -53,7 +53,7 @@ const {
         font-size: clamp(2.5em, 8vw, 6em);
     }
 
-    .footer-info {
+    .artwork-info {
         display: flex;
         gap: var(--margin-md);
     }
@@ -143,17 +143,17 @@ const {
     background="wine-red"
 >
     <article class="portfolio-artwork">
+        <!-- 
         <div class="hero-image">
             {cover && <Image width={940} height={1268} src={cover} alt={coverAlt} />}
         </div>
+        -->
         <div class="prose">
             <h1 class="artwork-title">
                 {title}
             </h1>
             <slot />
-        </div>
-        <footer>
-            <div class="footer-info">
+            <div class="artwork-info">
                 <div class="date">
                     <FormattedDate date={date} />
                 </div>
@@ -164,8 +164,21 @@ const {
                     </a>
                 }
             </div>
+        </div>
+
+        <footer>
             {
                 additionalImgs && <div class="additional-images">
+                    {cover && (
+                        <button
+                            type="button"
+                            class="img-card"
+                            data-fullsrc={cover}
+                            aria-label="Open image in larger view"
+                        >
+                            <Image width={940} height={1268} src={cover} alt={coverAlt} />
+                        </button>
+                    )}
                     {
                         additionalImgs.map((img) => (
                             <button
@@ -183,16 +196,6 @@ const {
                             </button>
                         ))
                     }
-                    {cover && (
-                        <button
-                            type="button"
-                            class="img-card"
-                            data-fullsrc={cover}
-                            aria-label="Open image in larger view"
-                        >
-                            <Image width={940} height={1268} src={cover} alt={coverAlt} />
-                        </button>
-                )}
                 </div>
             }
         </footer>
