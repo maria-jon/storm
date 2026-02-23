@@ -61,6 +61,18 @@ const {title, description, background} = Astro.props;
 			<slot />
 		</main>
 		<Footer />
-		<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+		<script>
+			// Netlify Identity invite/recovery links fix
+			const hash = window.location.hash || "";
+			const isIdentityToken =
+				hash.startsWith("#invite_token=") ||
+				hash.startsWith("#recovery_token=") ||
+				hash.startsWith("#confirmation_token=") ||
+				hash.startsWith("#email_change_token=");
+
+			if (isIdentityToken && !window.location.pathname.startsWith("/admin")) {
+				window.location.replace(`/admin/${hash}`);
+			}
+		</script>
 	</body>
 </html>

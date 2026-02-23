@@ -12,7 +12,7 @@
     <!-- Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
 
-    <script>
+    <!-- <script>
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", user => {
           if (!user) {
@@ -22,6 +22,21 @@
           }
         });
       }
+    </script>
+    -->
+    <script>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", (user) => {
+            const hash = window.location.hash || "";
+            const isInviteOrRecovery =
+                hash.startsWith("#invite_token=") || hash.startsWith("#recovery_token=");
+
+            // If not logged in and have an invite/recovery token, open the widget
+            if (!user && isInviteOrRecovery) {
+                window.netlifyIdentity.open();
+            }
+            });
+        }
     </script>
   </body>
 </html>
