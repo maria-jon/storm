@@ -13,10 +13,10 @@ collections:
     label: "Portfolio"
     label_singular: "Artwork"
     folder: "src/content/portfolio"
+    create: true
     media_folder: "public/uploads/artworks"
     public_folder: "/uploads/artworks"
-    create: true
-    slug: "{{slug}}"
+    slug: "{{slug}}-{{year}}"
     extension: "md"
     format: "frontmatter"
     fields:
@@ -89,9 +89,9 @@ collections:
     label: "About"
     label_singular: "AboutPost"
     folder: "src/content/about"
+    create: true
     media_folder: "public/uploads/about"
     public_folder: "/uploads/about"
-    create: true
     extension: "md"
     format: "frontmatter"
     fields:
