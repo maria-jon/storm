@@ -2,10 +2,10 @@
 title: 'Small blue rabbit'
 description: 'Lorem ipsum dolor sit amet'
 date: 'Apr 18 2025'
-cover: '../../assets/artworks/small-blue.jpg'
+cover: '/uploads/artworks/small-blue.jpg'
 coverAlt: 'Small blue rabbit'
 link: 'https://www.google.com'
-available: true 
+available: true
 availableText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 ---
 
