@@ -1,6 +1,5 @@
 ---
 title: 'Class of Bunnies 2025'
-description: 'Lorem ipsum dolor sit amet'
 date: 'Jun 07 2025'
 cover: '/uploads/artworks/pink-heart.png'
 coverAlt: 'Class of Bunnies'

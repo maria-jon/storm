@@ -1,6 +1,5 @@
 ---
 title: 'Small blue rabbit'
-description: 'Lorem ipsum dolor sit amet'
 date: 'Apr 18 2025'
 cover: '/uploads/artworks/small-blue.jpg'
 coverAlt: 'Small blue rabbit'

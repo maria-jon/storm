@@ -1,6 +1,5 @@
 ---
 title: 'London baby'
-description: 'Lorem ipsum dolor sit amet'
 date: 'Jul 08 2025'
 cover: '/uploads/artworks/london-baby.jpg'
 coverAlt: 'London baby'

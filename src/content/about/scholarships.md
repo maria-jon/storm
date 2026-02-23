@@ -1,7 +1,6 @@
 ---
 id: 3
 title: 'Scholarships'
-description: 'Lorem ipsum dolor sit amet'
 date: 'Nov 26 2025'
 cover: '../../assets/artworks/london-baby.jpg'
 coverAlt: 'Storm Philippa Clarén'

@@ -1,7 +1,6 @@
 ---
 id: 4
 title: 'Education'
-description: 'Lorem ipsum dolor sit amet'
 date: 'Nov 26 2025'
 cover: '../../assets/artworks/david-pluppy.png'
 coverAlt: 'Storm Philippa Clarén'

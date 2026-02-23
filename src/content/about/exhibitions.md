@@ -1,7 +1,6 @@
 ---
 id: 2
 title: 'Exhibitions'
-description: 'Lorem ipsum dolor sit amet'
 date: 'Nov 26 2025'
 cover: '../../assets/artworks/small-blue.jpg'
 coverAlt: 'Storm Philippa Clarén'

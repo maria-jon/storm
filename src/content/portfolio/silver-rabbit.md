@@ -1,6 +1,5 @@
 ---
 title: 'Silver'
-description: 'Lorem ipsum dolor sit amet'
 date: 'Sep 18 2025'
 cover: '/uploads/artworks/silver-front.jpg'
 coverAlt: 'Silver rabbit'

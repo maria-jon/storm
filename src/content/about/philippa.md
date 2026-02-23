@@ -1,7 +1,6 @@
 ---
 id: 1
 title: 'Storm Philippa'
-description: 'Lorem ipsum dolor sit amet'
 date: 'Nov 26 2025'
 cover: '../../assets/about/Philippa.jpg'
 coverAlt: 'Storm Philippa Clarén'

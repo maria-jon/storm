@@ -1,6 +1,5 @@
 ---
 title: 'David Pluppy'
-description: 'Lorem ipsum dolor sit amet'
 date: 'Jun 07 2025'
 cover: '/uploads/artworks/david-pluppy.png'
 coverAlt: 'David Pluppy'
