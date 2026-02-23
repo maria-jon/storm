@@ -4,6 +4,7 @@ import type { CollectionEntry } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 import BaseLayout from './BaseLayout.astro';
 import { SITE_DESCRIPTION, SITE_TITLE_TAG } from '../consts';
+import CloseIcon from "../assets/icons/close.svg";
 
 type Props = CollectionEntry<'portfolio'>['data'];
 
@@ -84,6 +85,56 @@ const {
         object-fit: cover;
         border-radius: var(--border-radius);
     }
+
+    .img-card {
+        padding: 0;
+        border: 0;
+        background: transparent;
+        cursor: zoom-in;
+    }
+
+    .lightbox {
+        border: none;
+        padding: 0;
+        background: transparent;
+        max-width: min(92vw, 1100px);
+        max-height: 92vh;
+    }
+
+    .lightbox::backdrop {
+        background: rgba(0, 0, 0, 0.75);
+    }
+
+    .lightbox-img {
+        width: 100%;
+        height: auto;
+        max-height: 92vh;
+        object-fit: contain;
+        display: block;
+        border-radius: var(--border-radius);
+        background: var(--black);
+    }
+
+    .lightbox-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        border: 0;
+        border-radius: var(--border-radius);
+        margin: 0.5rem 0.5rem;
+        cursor: pointer;
+        background: var(--peachy-pink);
+        opacity: 0.75;
+        display: flex;
+        justify-content: center;
+        padding-block: 0.375em;
+        padding-inline: 0.375em;
+    }
+
+    .lightbox-close:hover {
+        opacity: 1;
+    }
+
 </style>
 
 <BaseLayout 
@@ -117,17 +168,81 @@ const {
                 additionalImgs && <div class="additional-images">
                     {
                         additionalImgs.map((img) => (
-                            <img 
-                                width={940} 
-                                height={1268} 
-                                src={img} 
-                                alt=""
-                            />
+                            <button
+                                type="button"
+                                class="img-card"
+                                data-fullsrc={img}
+                                aria-label="Open image in larger view"
+                            >
+                                <img 
+                                    width={940} 
+                                    height={1268} 
+                                    src={img} 
+                                    alt=""
+                                />
+                            </button>
                         ))
                     }
-                    {cover && <Image width={940} height={1268} src={cover} alt={coverAlt} />}
+                    {cover && (
+                        <button
+                            type="button"
+                            class="img-card"
+                            data-fullsrc={cover}
+                            aria-label="Open image in larger view"
+                        >
+                            <Image width={940} height={1268} src={cover} alt={coverAlt} />
+                        </button>
+                )}
                 </div>
             }
         </footer>
+        <dialog class="lightbox" id="lightbox">
+            <button class="lightbox-close" type="button" aria-label="Close">
+                <CloseIcon
+                    width={32}
+                    height={32}
+                    aria-label="Toggle menu"
+                    class="close-icon hidden"
+                />
+            </button>
+            <img class="lightbox-img" alt="" />
+        </dialog>
+
+        <script is:inline>
+            const dialog = document.getElementById('lightbox');
+            const imgEl = dialog?.querySelector('.lightbox-img');
+            const closeBtn = dialog?.querySelector('.lightbox-close');
+
+            function openLightbox(src) {
+                if (!dialog || !imgEl) return;
+                imgEl.src = src;
+                dialog.showModal();
+            }
+
+            function closeLightbox() {
+                dialog?.close();
+                if (imgEl) imgEl.src = '';
+            }
+
+            // Open on click
+            document.addEventListener('click', (e) => {
+                const btn = e.target.closest?.('.img-card[data-fullsrc]');
+                if (!btn) return;
+                openLightbox(btn.dataset.fullsrc);
+            });
+
+            // Close button
+            closeBtn?.addEventListener('click', closeLightbox);
+
+            // Click backdrop to close
+            dialog?.addEventListener('click', (e) => {
+                if (e.target === dialog) closeLightbox();
+            });
+
+            // Clear src on close
+            dialog?.addEventListener('close', () => {
+                if (imgEl) imgEl.src = '';
+            });
+        </script>
     </article>
 </BaseLayout>
