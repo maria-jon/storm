@@ -46,7 +46,7 @@ collections:
 
       # Availability
       - { label: "Available", name: "available", widget: "boolean", default: false, required: false }
-      - { label: "Available Text", name: "availableText", widget: "string" }
+      - { label: "Available Text", name: "availableText", widget: "string", required: false }
 
       - { label: "Body", name: "body", widget: "markdown", required: false }
   
