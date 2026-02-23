@@ -2,7 +2,7 @@
 id: 2
 title: 'Exhibitions'
 date: 'Nov 26 2025'
-cover: '../../assets/artworks/small-blue.jpg'
+cover: '/uploads/artworks/small-blue.jpg'
 coverAlt: 'Storm Philippa Clarén'
 ---
 

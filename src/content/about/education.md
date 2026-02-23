@@ -2,7 +2,7 @@
 id: 4
 title: 'Education'
 date: 'Nov 26 2025'
-cover: '../../assets/artworks/david-pluppy.png'
+cover: '/uploads/artworks/david-pluppy.png'
 coverAlt: 'Storm Philippa Clarén'
 ---
 

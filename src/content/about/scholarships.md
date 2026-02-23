@@ -2,7 +2,7 @@
 id: 3
 title: 'Scholarships'
 date: 'Nov 26 2025'
-cover: '../../assets/artworks/london-baby.jpg'
+cover: '/uploads/artworks/london-baby.jpg'
 coverAlt: 'Storm Philippa Clarén'
 ---
 
