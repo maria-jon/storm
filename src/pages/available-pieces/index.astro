@@ -73,7 +73,7 @@ const availablePosts = await getCollection('portfolio', ({ data }) => data.avail
 						<AvailableCard 
 							cover={post.data.cover}
 							coverAlt={post.data.coverAlt}
-							url={`/storm/portfolio/${post.id}/`}
+							url={`/portfolio/${post.id}/`}
 							title={post.data.title}
                             availableText={post.data.availableText}
                             class="grid-item"
