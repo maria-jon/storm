@@ -13,6 +13,8 @@ collections:
     label: "Portfolio"
     label_singular: "Artwork"
     folder: "src/content/portfolio"
+    media_folder: "public/uploads/artworks"
+    public_folder: "/uploads/artworks"
     create: true
     slug: "{{slug}}"
     extension: "md"
@@ -87,6 +89,8 @@ collections:
     label: "About"
     label_singular: "AboutPost"
     folder: "src/content/about"
+    media_folder: "public/uploads/about"
+    public_folder: "/uploads/about"
     create: true
     extension: "md"
     format: "frontmatter"
