@@ -54,8 +54,6 @@ const {title, description, background} = Astro.props;
 			}
 		</style>
 	</head>
-
-	<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 	
 	<body>
 		<Header />
@@ -63,5 +61,6 @@ const {title, description, background} = Astro.props;
 			<slot />
 		</main>
 		<Footer />
+		<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 	</body>
 </html>
