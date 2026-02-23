@@ -16,7 +16,7 @@ collections:
     create: true
     media_folder: "public/uploads/artworks"
     public_folder: "/uploads/artworks"
-    slug: "{{slug}}-{{year}}"
+    slug: "{{slug}}"
     extension: "md"
     format: "frontmatter"
     fields:
