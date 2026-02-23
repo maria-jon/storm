@@ -1,0 +1,52 @@
+# --------------- BACKEND --------------- 
+backend:
+ name: git-gateway
+ branch: main
+
+# --------------- MEDIA / IMAGES --------------- 
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+# --------------- COLLECTIONS --------------- 
+collections:
+  - name: "portfolio"
+    label: "Portfolio"
+    label_singular: "Artwork"
+    folder: "src/content/portfolio"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+
+      # Date
+      - label: "Date" 
+        name: "date"
+        widget: "datetime"
+        format: "MMM DD YYYY"
+        time_format: false 
+
+      # Cover image and alt text 
+      - { label: "Cover image", name: "cover", widget: "image" }
+      - { label: "Cover alt text", name: "coverAlt", widget: "string" }
+
+      # Link and link text
+      - { label: "Link URL", name: "link", widget: "string", required: false }
+      - { label: "Link text", name: "linkText", widget: "string", required: false }
+
+      # Additional images (list)
+      - label: "Additional images"
+        name: "additionalImgs"
+        widget: "list"
+        required: false
+        field:
+          { label: "Image", name: "image", widget: "image" }
+
+      # Availability
+      - { label: "Available", name: "available", widget: "boolean", default: false, required: false }
+      - { label: "Available Text", name: "availableText", widget: "string" }
+
+      - { label: "Body", name: "body", widget: "markdown", required: false }
+  
