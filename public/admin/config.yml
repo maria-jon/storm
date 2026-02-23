@@ -14,7 +14,7 @@ collections:
     label_singular: "Artwork"
     folder: "src/content/portfolio"
     create: true
-    media_folder: "public/uploads/artworks"
+    media_folder: "artworks"
     public_folder: "/uploads/artworks"
     slug: "{{slug}}"
     extension: "md"
@@ -90,7 +90,7 @@ collections:
     label_singular: "AboutPost"
     folder: "src/content/about"
     create: true
-    media_folder: "public/uploads/about"
+    media_folder: "about"
     public_folder: "/uploads/about"
     extension: "md"
     format: "frontmatter"
