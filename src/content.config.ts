@@ -17,20 +17,15 @@ const blog = defineCollection({
 });
 
 const portfolio = defineCollection({
-	// Load Markdown and MDX files in the `src/content/blog/` directory.
 	loader: glob({ base: './src/content/portfolio', pattern: '**/*.md' }),
-	// Type-check frontmatter using a schema
 	schema: () =>
 		z.object({
 			title: z.string(),
-			description: z.string(),
 			// Transform string to Date object
 			date: z.coerce.date(),
-			//cover: image(),
 			cover: z.string(),
 			coverAlt: z.string(),
 			tags: z.array(z.string()).optional(),
-			//additionalImgs: z.array(image()).optional(),
 			additionalImgs: z.array(z.string()).optional(),
 			link: z.string().optional(),
 			linkText: z.string().optional(),
@@ -40,20 +35,17 @@ const portfolio = defineCollection({
 });
 
 const about = defineCollection({
-	// Load Markdown and MDX files in the `src/content/blog/` directory.
 	loader: glob({ base: './src/content/about', pattern: '**/*.md' }),
-	// Type-check frontmatter using a schema
-	schema: ({ image }) =>
+	schema: () =>
 		z.object({
 			id: z.number(),
 			title: z.string(),
-			description: z.string(),
 			// Transform string to Date object
 			date: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
-			cover: image(),
-			coverAlt: z.string(),
-			additionalImgs: image().optional(),
+			cover: z.string(),
+			coverAlt: z.string().optional(),
+			additionalImgs: z.array(z.string()).optional(),
 			link: z.string().optional(),
 		}),
 });

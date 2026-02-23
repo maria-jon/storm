@@ -22,14 +22,13 @@ collections:
         name: "title"
         widget: "string" 
         hint: "Name shown on the card and on the artwork page."
-      - { label: "Description", name: "description", widget: "string" }
 
       # Date
       - label: "Date" 
         name: "date"
         widget: "datetime"
         format: "MMM DD YYYY"
-        time_format: false 
+        time_format: false
         hint: "Used for sorting. Pick the release/exhibition date."
 
       # Cover image and alt text 
@@ -46,7 +45,7 @@ collections:
       - label: "Link URL"
         name: "link"
         widget: "string"
-        required: false 
+        required: false
         hint: "Optional link to external page (ex. exhibition page, press, etc.)"
       - label: "Link text"
         name: "linkText"
@@ -70,14 +69,17 @@ collections:
         name: "available"
         widget: "boolean"
         default: false
-        required: false 
-        hint: "Check this if the artwork is currently available for sale"
+        required: false
+        hint: "Check this if the artwork is currently available for sale. It will show up on the 'Available Pieces' page."
 
       - label: "Available text" 
         name: "availableText"
         widget: "string"
-        required: false 
+        required: false
         hint: "Text overlay to display on 'Available Pieces page'. Keep it short and sweet!"
 
-      - { label: "Body", name: "body", widget: "markdown", required: false }
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        required: false
   
