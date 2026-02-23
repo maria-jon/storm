@@ -4,6 +4,7 @@ import FacebookIcon from "../assets/icons/icons8-facebook-24.svg"
 import InstagramIcon from "../assets/icons/icons8-instagram-24.svg"
 import MailIcon from "../assets/icons/icons8-mail.svg"
 import PageTitle from "../components/PageTitle.astro";
+import { SITE_DESCRIPTION, SITE_TITLE_TAG } from '../consts';
 ---
 <style>
     h1 {
@@ -127,8 +128,8 @@ import PageTitle from "../components/PageTitle.astro";
 </style>
 
 <BaseLayout
-    title="Contact"
-    description="Lorem ipsum dolor sit amet"
+    title={`Contact ${SITE_TITLE_TAG}`}
+    description={SITE_DESCRIPTION}
     background="wine-red"
 >
     <PageTitle 

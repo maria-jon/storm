@@ -4,6 +4,7 @@ import { getCollection } from 'astro:content';
 import type { CollectionEntry } from "astro:content";
 import PortfolioCard from '../../components/PortfolioCard.astro';
 import PageTitle from "../../components/PageTitle.astro";
+import { SITE_DESCRIPTION, SITE_TITLE_TAG } from '../../consts';
 
 const posts = (await getCollection('portfolio'))
 
@@ -50,8 +51,8 @@ const sortPosts = (
     }
 </style>
 <BaseLayout
-    title="Portfolio"
-    description="Lorem ipsum dolor sit amet"
+    title={`Portfolio ${SITE_TITLE_TAG}`}
+    description={SITE_DESCRIPTION}
     background="wine-red"
 >
     <PageTitle 

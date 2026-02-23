@@ -3,12 +3,12 @@ import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 import BaseLayout from './BaseLayout.astro';
+import { SITE_DESCRIPTION, SITE_TITLE_TAG } from '../consts';
 
 type Props = CollectionEntry<'portfolio'>['data'];
 
 const { 
     title, 
-    description, 
     date, 
     cover, 
     coverAlt, 
@@ -73,8 +73,8 @@ const {
 </style>
 
 <BaseLayout 
-    title={title} 
-    description={description} 
+    title={`${title} ${SITE_TITLE_TAG}`}
+    description={SITE_DESCRIPTION} 
     background="wine-red"
 >
     <article class="portfolio-artwork">
