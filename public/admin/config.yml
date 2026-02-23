@@ -18,7 +18,10 @@ collections:
     extension: "md"
     format: "frontmatter"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
+      - label: "Title"
+        name: "title"
+        widget: "string" 
+        hint: "Name shown on the card and on the artwork page."
       - { label: "Description", name: "description", widget: "string" }
 
       # Date
@@ -27,26 +30,54 @@ collections:
         widget: "datetime"
         format: "MMM DD YYYY"
         time_format: false 
+        hint: "Used for sorting. Pick the release/exhibition date."
 
       # Cover image and alt text 
-      - { label: "Cover image", name: "cover", widget: "image" }
-      - { label: "Cover alt text", name: "coverAlt", widget: "string" }
+      - label: "Cover image"
+        name: "cover"
+        widget: "image" 
+        hint: "Main image. Recommended dimensions: 940x1268px (aspect ratio 3:4) for optimal display on the website"
+      - label: "Cover image alt text"
+        name: "coverAlt"
+        widget: "string"
+        hint: "Describe the image for accessibility (ex. 'Abstract painting with blue and gold tones', 'Sculpture of a blue rabbit made of ceramics')"
 
       # Link and link text
-      - { label: "Link URL", name: "link", widget: "string", required: false }
-      - { label: "Link text", name: "linkText", widget: "string", required: false }
+      - label: "Link URL"
+        name: "link"
+        widget: "string"
+        required: false 
+        hint: "Optional link to external page (ex. exhibition page, press, etc.)"
+      - label: "Link text"
+        name: "linkText"
+        widget: "string"
+        required: false
+        hint: "Link text shown on page (ex. 'Exhibition details', 'Gallery name ', etc.)"
 
       # Additional images (list)
       - label: "Additional images"
         name: "additionalImgs"
         widget: "list"
         required: false
+        hint: "Additional gallery images (shown when going to the artwork/project page)."
         field:
-          { label: "Image", name: "image", widget: "image" }
+          label: "Image"
+          name: "image"
+          widget: "image" 
 
       # Availability
-      - { label: "Available", name: "available", widget: "boolean", default: false, required: false }
-      - { label: "Available Text", name: "availableText", widget: "string", required: false }
+      - label: "Available" 
+        name: "available"
+        widget: "boolean"
+        default: false
+        required: false 
+        hint: "Check this if the artwork is currently available for sale"
+
+      - label: "Available text" 
+        name: "availableText"
+        widget: "string"
+        required: false 
+        hint: "Text overlay to display on 'Available Pieces page'. Keep it short and sweet!"
 
       - { label: "Body", name: "body", widget: "markdown", required: false }
   
