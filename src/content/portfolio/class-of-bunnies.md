@@ -2,7 +2,7 @@
 title: 'Class of Bunnies 2025'
 description: 'Lorem ipsum dolor sit amet'
 date: 'Jun 07 2025'
-cover: '../../assets/artworks/pink-heart.png'
+cover: '/uploads/artworks/pink-heart.png'
 coverAlt: 'Class of Bunnies'
 link: 'https://www.google.com'
 linkText: 'Cool Gallery'

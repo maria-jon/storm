@@ -2,7 +2,7 @@
 title: 'London baby'
 description: 'Lorem ipsum dolor sit amet'
 date: 'Jul 08 2025'
-cover: '../../assets/artworks/london-baby.jpg'
+cover: '/uploads/artworks/london-baby.jpg'
 coverAlt: 'London baby'
 available: true
 ---

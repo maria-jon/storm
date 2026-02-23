@@ -26,13 +26,15 @@ const portfolio = defineCollection({
 			description: z.string(),
 			// Transform string to Date object
 			date: z.coerce.date(),
-			cover: image(),
+			//cover: image(),
+			cover: z.string(),
 			coverAlt: z.string(),
 			tags: z.array(z.string()).optional(),
-			additionalImgs: z.array(image()).optional(),
+			//additionalImgs: z.array(image()).optional(),
+			additionalImgs: z.array(z.string()).optional(),
 			link: z.string().optional(),
 			linkText: z.string().optional(),
-			available: z.boolean(),
+			available: z.boolean().default(false),
 			availableText: z.string().optional(),
 		}),
 });

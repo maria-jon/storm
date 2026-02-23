@@ -2,15 +2,15 @@
 title: 'David Pluppy'
 description: 'Lorem ipsum dolor sit amet'
 date: 'Jun 07 2025'
-cover: '../../assets/artworks/david-pluppy.png'
+cover: '/uploads/artworks/david-pluppy.png'
 coverAlt: 'David Pluppy'
 link: 'https://www.google.com'
 linkText: 'Cool Gallery'
 additionalImgs: [
-    '../../assets/artworks/david-pluppy-back.png',
-    '../../assets/artworks/david-pluppy.png',
+    '/uploads/artworks/david-pluppy-back.png',
+    '/uploads/artworks/david-pluppy.png',
 ]
-available: true 
+available: true
 availableText: 'Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.'
 ---
 
