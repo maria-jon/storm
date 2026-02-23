@@ -82,4 +82,43 @@ collections:
         name: "body"
         widget: "markdown"
         required: false
-  
+
+  - name: "about"
+    label: "About"
+    label_singular: "AboutPost"
+    folder: "src/content/about"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string" 
+        hint: "Title shown on the about card/section"
+
+      # Date
+      - label: "Date" 
+        name: "date"
+        widget: "datetime"
+        format: "MMM DD YYYY"
+        time_format: false
+        hint: "Used for sorting."
+
+      # Cover image and alt text 
+      - label: "Cover image"
+        name: "cover"
+        widget: "image" 
+        hint: "Main image. Recommended dimensions: 940x1268px (aspect ratio 3:4) for optimal display on the website"
+      - label: "Cover image alt text"
+        name: "coverAlt"
+        widget: "string"
+        hint: "Describe the image for accessibility (ex. 'Abstract painting with blue and gold tones', 'Sculpture of a blue rabbit made of ceramics')"
+      
+      # Link
+      - label: "Link URL"
+        name: "link"
+        widget: "string"
+        required: false
+        hint: "Optional link to external page (ex. exhibition page, press, etc.)"
+     

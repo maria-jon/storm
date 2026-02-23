@@ -45,7 +45,6 @@ const about = defineCollection({
 			updatedDate: z.coerce.date().optional(),
 			cover: z.string(),
 			coverAlt: z.string().optional(),
-			additionalImgs: z.array(z.string()).optional(),
 			link: z.string().optional(),
 		}),
 });
