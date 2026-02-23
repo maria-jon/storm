@@ -3,3 +3,5 @@
 
 export const SITE_TITLE = 'Storm Philippa Clarén';
 export const SITE_DESCRIPTION = 'Storm Philippa Clarén portfolio';
+
+export const SITE_TITLE_TAG = `| ${SITE_TITLE}`;
