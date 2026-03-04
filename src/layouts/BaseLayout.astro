@@ -57,7 +57,7 @@ const {title, description, background} = Astro.props;
 	
 	<body>
 		<Header />
-		<main class={background}>
+		<main class=`${background} main`>
 			<slot />
 		</main>
 		<Footer />

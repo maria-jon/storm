@@ -198,3 +198,45 @@ hr {
 	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
 }
+
+@media (prefers-reduced-motion: no-preference) {
+	@view-transition {
+		navigation: auto;
+	}
+
+	/*
+	.page-title { 
+		view-transition-name: page-title; 
+	}
+	.main { 
+		view-transition-name: main; 
+	}
+
+	::view-transition-image-pair(page-title) {
+		overflow: hidden;
+	}
+
+	::view-transition-old(page-title) {
+		animation: slide-out-left 0.5s ease-out;
+		animation-fill-mode: forwards;
+	}
+
+	::view-transition-new(page-title) {
+		animation: slide-in-right 0.5s ease-out;
+	}
+
+	@keyframes slide-out-left {
+		to {
+			transform: translateX(100%);
+			opacity: 0;
+		}
+	}
+
+	@keyframes slide-in-right {
+		from {
+			transform: translateX(-100%);
+			opacity: 0;
+		}
+	}
+	*/
+}
