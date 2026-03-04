@@ -161,6 +161,24 @@ hr {
 	border-top: 1px solid rgb(var(--gray-light));
 }
 
+.breadcrumbs {
+	padding: 0.5em 0;
+	color: var(--peachy-pink);
+
+	a {
+		color: var(--peachy-pink);
+		text-decoration: none;
+	}
+
+	a:first-child::after {
+		content:">";
+		padding: 0.5em;
+	}
+	a:last-child {
+		text-decoration: underline;
+	}
+}
+
 @media (max-width: 600px) {
 	:root {
 		--page-margin: clamp(1rem, calc(1rem + (2 - 1) * ((100vw - 25rem) / (75 - 25))), 2rem);
