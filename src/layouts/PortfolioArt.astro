@@ -10,6 +10,7 @@ type Props = CollectionEntry<'portfolio'>['data'];
 
 const { 
     title, 
+    description,
     date, 
     cover, 
     coverAlt, 
@@ -51,6 +52,13 @@ const {
 
     .artwork-title {
         font-size: clamp(2.5em, 8vw, 6em);
+        margin: 1rem 0 0.5rem 0;
+        text-box: cap alphabetic;
+    }
+
+    .artwork-description {
+        font-weight: 500;
+        color: var(--wine-red);
     }
 
     .artwork-info {
@@ -90,7 +98,14 @@ const {
         padding: 0;
         border: 0;
         background: transparent;
+    }
+
+    .img-card:hover {
         cursor: zoom-in;
+
+        img {
+            box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.75);
+        }
     }
 
     .lightbox {
@@ -103,6 +118,7 @@ const {
 
     .lightbox::backdrop {
         background: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(6px);
     }
 
     .lightbox-img {
@@ -152,6 +168,11 @@ const {
             <h1 class="artwork-title">
                 {title}
             </h1>
+            {
+                description && <span class="artwork-description">
+                    {description}
+                </span>
+            }
             <slot />
             <div class="artwork-info">
                 <div class="date">

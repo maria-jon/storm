@@ -21,6 +21,7 @@ const portfolio = defineCollection({
 	schema: () =>
 		z.object({
 			title: z.string(),
+			description: z.string().optional(),
 			// Transform string to Date object
 			date: z.coerce.date(),
 			cover: z.string(),

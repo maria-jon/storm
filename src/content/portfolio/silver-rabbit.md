@@ -1,5 +1,6 @@
 ---
 title: 'Silver'
+description: 'Silver is a chemical element; it has symbol Ag and atomic number 47.'
 date: 'Sep 18 2025'
 cover: '/uploads/artworks/silver-front.jpg'
 coverAlt: 'Silver rabbit'
