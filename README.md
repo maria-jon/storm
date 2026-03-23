@@ -1,37 +1,46 @@
-# Astro Starter Kit: Blog
+# Storm portfolio
 
-Features:
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1bc0ff47-6f65-4ca8-882b-8bddae2d6ef4/deploy-status)](https://app.netlify.com/projects/teal-gumption-d45e30/deploys)
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+- Astro
+- GitHub Actions
+- Netflify
+- OAuth
+- Decap CMS
 
 ## 🚀 Project Structure
 
 
 ```text
 ├── public/
+│   ├── uploads/
+│   │   └── artworks/
 ├── src/
 │   ├── components/
 │   ├── content/
+│   │   ├── about/
+│   │   └── portfolio/
 │   ├── layouts/
 │   └── pages/
+│       ├── home/
+│       ├── available pieces/
+│       ├── about/
+│       ├── portfolio/
+│       └── contact/
 ├── astro.config.mjs
 ├── README.md
 ├── package.json
 └── tsconfig.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+`src/content/about` is the markdown content collection for sections in the about-page.
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+`src/content/portfolio` is the markdown content collection for artworks.
 
-Any static assets, like images, can be placed in the `public/` directory.
+Both content collections are type-checked by the zod schemas found in `src/content.config.ts`. They are rendered using `getCollection()`. Uploaded assets can be found in `public/uploads`.
+
+`src/pages/portfolio/` is used to generate routing for single artwork pages.
 
 ## 🧞 Commands
 

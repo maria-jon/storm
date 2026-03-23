@@ -192,19 +192,19 @@ const {
         </div>
 
         <footer>
-            {
-                additionalImgs && <div class="additional-images">
-                    {cover && (
-                        <button
-                            type="button"
-                            class="img-card"
-                            data-fullsrc={cover}
-                            aria-label="Open image in larger view"
-                        >
-                            <Image width={940} height={1268} src={cover} alt={coverAlt} />
-                        </button>
-                    )}
-                    {
+            <div class="additional-images">
+                {cover && (
+                    <button
+                        type="button"
+                        class="img-card"
+                        data-fullsrc={cover}
+                        aria-label="Open image in larger view"
+                    >
+                        <Image width={940} height={1268} src={cover} alt={coverAlt} />
+                    </button>
+                )}
+                {
+                    additionalImgs && (
                         additionalImgs.map((img) => (
                             <button
                                 type="button"
@@ -220,9 +220,9 @@ const {
                                 />
                             </button>
                         ))
-                    }
-                </div>
-            }
+                    )
+                }
+            </div>
         </footer>
         <dialog class="lightbox" id="lightbox">
             <button class="lightbox-close" type="button" aria-label="Close">
